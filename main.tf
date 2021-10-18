@@ -54,8 +54,8 @@ resource "aws_s3_bucket" "aws_velero" {
   bucket = "${var.customer_name}-eks-velero"
   acl    = "private"
 
-  tags = concat([{
+  tags = merge({
     Name = "${var.cluster_name}"
-  }], var.tags
+  }, var.tags
   )
 }
