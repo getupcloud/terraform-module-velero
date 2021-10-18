@@ -33,7 +33,7 @@ data "aws_iam_policy_document" "aws_velero" {
 }
 
 resource "aws_iam_policy" "aws_velero" {
-  name_prefix = local.name_prefix
+  name        = local.name_prefix
   description = "Velero policy for EKS cluster ${var.cluster_name}"
   policy      = data.aws_iam_policy_document.aws_velero.json
 }
