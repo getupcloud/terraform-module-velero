@@ -15,7 +15,7 @@ data "aws_iam_policy_document" "aws_velero" {
     ]
 
     resources = [
-      "arn:aws:s3:::${var.customer_name}-eks-velero/*"
+      "arn:aws:s3:::${var.customer_name}-${var.cluster_name}-velero/*"
     ]
   }
 
@@ -27,7 +27,7 @@ data "aws_iam_policy_document" "aws_velero" {
     ]
 
     resources = [
-      "arn:aws:s3:::${var.customer_name}-eks-velero",
+      "arn:aws:s3:::${var.customer_name}-${var.cluster_name}-velero",
     ]
   }
 }
@@ -51,7 +51,7 @@ module "irsa_aws_velero" {
 }
 
 resource "aws_s3_bucket" "aws_velero" {
-  bucket = "${var.customer_name}-eks-velero"
+  bucket = "${var.customer_name}-${var.cluster_name}-velero"
   acl    = "private"
 
   tags = merge({
