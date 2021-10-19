@@ -14,9 +14,9 @@ data "aws_iam_policy_document" "aws_velero" {
       "s3:ListMultipartUploadParts"
     ]
 
-    resources = [                
+    resources = [
       "arn:aws:s3:::${var.customer_name}-eks-velero/*"
-      ]
+    ]
   }
 
   statement {
@@ -28,7 +28,7 @@ data "aws_iam_policy_document" "aws_velero" {
 
     resources = [
       "arn:aws:s3:::${var.customer_name}-eks-velero",
-      ]
+    ]
   }
 }
 
@@ -56,6 +56,6 @@ resource "aws_s3_bucket" "aws_velero" {
 
   tags = merge({
     Name = "${var.cluster_name}"
-  }, var.tags
+    }, var.tags
   )
 }
