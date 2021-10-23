@@ -13,12 +13,12 @@ variable "cluster_oidc_issuer_url" {
 }
 
 variable "service_account_namespace" {
-  description = "Namespace of ServiceAccount for cluster-autoscaler controller"
+  description = "Namespace of ServiceAccount for velero"
   default     = "velero"
 }
 
 variable "service_account_name" {
-  description = "ServiceAccount name for cluster-autoscaler controller"
+  description = "ServiceAccount name for velero"
   default     = "eks-infra-velero"
 }
 variable "tags" {
