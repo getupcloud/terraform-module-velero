@@ -51,8 +51,9 @@ module "irsa_aws_velero" {
 }
 
 resource "aws_s3_bucket" "aws_velero" {
-  bucket = "${var.customer_name}-${var.cluster_name}-velero"
-  acl    = "private"
+  bucket        = "${var.customer_name}-${var.cluster_name}-velero"
+  acl           = "private"
+  force_destroy = true
 
   tags = merge({
     Name = "${var.cluster_name}"
