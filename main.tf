@@ -41,7 +41,7 @@ resource "aws_iam_policy" "aws_velero" {
 
 module "irsa_aws_velero" {
   source  = "terraform-aws-modules/iam/aws//modules/iam-assumable-role-with-oidc"
-  version = "~> 4.2"
+  version = "~> 4.7"
 
   create_role                   = true
   role_name                     = local.name_prefix               
