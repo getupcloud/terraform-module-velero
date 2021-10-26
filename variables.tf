@@ -19,7 +19,7 @@ variable "service_account_namespace" {
 
 variable "service_account_name" {
   description = "ServiceAccount name for velero"
-  default     = "eks-infra-velero"
+  default     = "velero"
 }
 variable "tags" {
   description = "AWS tags to apply to resources"
