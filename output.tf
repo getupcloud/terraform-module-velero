@@ -1,11 +1,11 @@
 output "bucket_name" {
   description = "Bucket name"
-  value       = aws_s3_bucket.bucket
+  value       = aws_s3_bucket.aws_velero.bucket
 }
 
 output "bucket_region" {
   description = "Bucket region"
-  value       = aws_s3_bucket.region
+  value       = aws_s3_bucket.aws_velero.region
 }
 
 output "iam_role_name" {
