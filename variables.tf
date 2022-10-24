@@ -2,9 +2,16 @@ variable "cluster_name" {
   description = "EKS Cluster name"
   type        = string
 }
+
 variable "customer_name" {
-  description = "customer name"
+  description = "Customer name"
   type        = string
+}
+
+variable "bucket_name" {
+  description = "Bucket name. Auto-generated if empty."
+  type        = string
+  default     = ""
 }
 
 variable "cluster_oidc_issuer_url" {

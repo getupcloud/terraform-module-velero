@@ -44,14 +44,14 @@ module "irsa_aws_velero" {
   version = "~> 4.7"
 
   create_role                   = true
-  role_name                     = local.name_prefix               
+  role_name                     = local.name_prefix
   provider_url                  = var.cluster_oidc_issuer_url
   role_policy_arns              = [aws_iam_policy.aws_velero.arn]
   oidc_fully_qualified_subjects = ["system:serviceaccount:${var.service_account_namespace}:${var.service_account_name}"]
 }
 
 resource "aws_s3_bucket" "aws_velero" {
-  bucket        = "${var.customer_name}-${var.cluster_name}-velero"
+  bucket        = var.bucket_name != "" ? var.bucket_name : "${var.customer_name}-${local.name_prefix}"
   force_destroy = true
 
   tags = merge({
