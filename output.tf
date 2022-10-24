@@ -1,8 +1,3 @@
-output "" {
-  description = ""
-  value       = module.irsa_aws_velero.iam_role_arn
-}
-
 output "bucket_name" {
   description = "Bucket name"
   value       = aws_s3_bucket.bucket
