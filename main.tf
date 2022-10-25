@@ -6,7 +6,7 @@ data "aws_iam_policy_document" "aws_velero" {
   statement {
     effect = "Allow"
 
-    actions =[
+    actions = [
       "ec2:DescribeVolumes",
       "ec2:DescribeSnapshots",
       "ec2:CreateTags",

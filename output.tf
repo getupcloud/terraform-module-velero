@@ -8,6 +8,11 @@ output "bucket_region" {
   value       = aws_s3_bucket.aws_velero.region
 }
 
+output "iam_role_arn" {
+  description = "ARN of IAM role"
+  value       = module.irsa_aws_velero.iam_role_arn
+}
+
 output "iam_role_name" {
   description = "Name of IAM role"
   value       = module.irsa_aws_velero.iam_role_name
