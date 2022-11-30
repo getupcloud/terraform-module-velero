@@ -20,6 +20,13 @@ variable "provider_name" {
 
 variable "provider_aws" {
   description = "Config AWS Resources"
+  type        = any
+
+  default = {}
+}
+
+variable "provider_aws_defaults" {
+  description = "Config AWS Resources"
   type = object({
     bucket_name : string
     cluster_oidc_issuer_url : string

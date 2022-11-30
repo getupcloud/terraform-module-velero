@@ -14,10 +14,11 @@ module "aws" {
   name_prefix               = local.name_prefix
   cluster_name              = var.cluster_name
   customer_name             = var.customer_name
-  cluster_oidc_issuer_url   = var.provider_aws.cluster_oidc_issuer_url
-  service_account_namespace = var.provider_aws.service_account_namespace
-  service_account_name      = var.provider_aws.service_account_name
-  tags                      = var.provider_aws.tags
+  bucket_name               = try(var.provider_aws.bucket_name, var.provider_aws_defaults.bucket_name)
+  cluster_oidc_issuer_url   = try(var.provider_aws.cluster_oidc_issuer_url, var.provider_aws_defaults.cluster_oidc_issuer_url)
+  service_account_namespace = try(var.provider_aws.service_account_namespace, var.provider_aws_defaults.service_account_namespace)
+  service_account_name      = try(var.provider_aws.service_account_name, var.provider_aws_defaults.service_account_name)
+  tags                      = try(var.provider_aws.tags, var.provider_aws_defaults.tags)
 }
 
 #module "aks" {
