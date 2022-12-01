@@ -2,7 +2,7 @@ locals {
   name_prefix = substr("${var.cluster_name}-velero", 0, 32)
   output = {
     aws : var.provider_name == "aws" ? module.aws[0] : tomap({})
-    #    aks : var.provider_name == "aks" ? module.aks[0] : tomap({})
+    # aks : var.provider_name == "aks" ? module.aks[0] : tomap({})
   }
 
 }

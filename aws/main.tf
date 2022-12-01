@@ -54,10 +54,10 @@ data "aws_iam_policy_document" "aws_velero" {
 ### AUTH BY IRSA
 
 module "irsa_aws_velero" {
-  count   = local.use_oidc ? 1 : 0
   source  = "terraform-aws-modules/iam/aws//modules/iam-assumable-role-with-oidc"
   version = "~> 4.7"
 
+  count                         = local.use_oidc ? 1 : 0
   create_role                   = true
   role_name_prefix              = var.name_prefix
   provider_url                  = var.cluster_oidc_issuer_url
